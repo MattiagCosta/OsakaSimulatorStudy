@@ -1,0 +1,17 @@
+In a fresh tsu_han-hex_converted.txt, 31 and 32 means 1 and 2. They have been changed in tsu_han-final.txt.
+
+It looks like numbers are saved in the little-endian format (the bytes get inverted).
+This can be seen for the yens and the flags for the items you can buy (01000000 becomes 00000001, which makes more sense).
+
+If you add new lines or extra character at the end of tsu_han.dat, the yens will change.
+Even changing the junk that divides two items changes the yens.
+The file gets fixed when the game saves.
+
+I tried to manually change a flag of an item, but Osaka Simulator terminates with an unexpected error: and tsu_han.dat doesn't get fixed.
+Maybe because I manually copy-pasted a character that my IDE uses to render a x01 char, and not the actual x01 char. Even when I fixed it by copying a x00 character, the same error occoured.
+Changing the byte from 00 to 01 using the proper tools works.
+
+Changing the number of yen is easier and possible.
+The yen limit is 100,000,000.
+
+I later tried to change the byte of a "items separator" from 08 to 0b and it still crushed. Looks like these can't be changed.
