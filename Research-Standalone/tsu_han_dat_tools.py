@@ -91,7 +91,7 @@ ITEMS_LIST = [
 ]
 
 FRESH_START_YEN = 50000
-FRESH_START_ITEMS = ["chair", "clothDefault", "clothPink", "nenekoCap", "tv"]
+FRESH_START_ITEMS = ["chair", "clothDefault", "clothPink", "door" "nenekoCap", "tv"]
 
 def CheckItemValidity(item: str, throw_error: bool = True) -> bool:
 	validation = item in ITEMS_LIST
