@@ -12,3 +12,10 @@
 00000100 50a59e 44 9aacd042aa8399 42 3630dcc2 30 75 00 00 55000000 0b // 30,000 yen, 6.41%
 00000100 c47f4a 44 af9298c3b3b1d3 42 709b9942 50 c3 00 00 55000000 0b // 50,000 yen, 6.41%; 50,000 (dec) = 00 00 c3 50 (Hex) = 0000c350; yen are written in little-endian format
 00000100 caa799 44 205bfdbea00e22 42 a21b5242 5c 73 bc 00 55000000 0b // I bought an ice cream (I think?) for 308 yen after the ending
+00000100 49c094 44 a6140cc32350cc 42 18249543 50 c3 00 00 55000000 0b // I manually changed the second part of the mess (maybe a color) to "ff0101"; the game loaded, and it looks like it changed the value; it looks like a dead end
+00000100 c47f4a 44 f5a38ac3d521aa 42 25dbbac1 50 c3 00 00 55000000 0b // Still working on that color, I set it to "000000" this time; it looks like there are some fixed values, because it's the third time that I get "c47f4a"; and I got "402128" two times
+00000100 4bc094 44 3c8a1742f1eaca 42 559a4d43 50 c3 00 00 55000000 0b // I set it to "402128"; nothing interesting happened
+00000100 0ef29a 44 505d4fc3d58cbf 42 c1ba9441 50 c3 00 00 55000000 0b // Haven't changed anything of the beginning mess above
+00000100 487f4a 44 40b3d4401e52cc 42 be842843 50 c3 00 00 55000000 0b // I changed the 44-45 sepataor to 46; it looks like even changing this byte doesn't matter, or it matters for just a few moments
+00000100 da3d97 44 d7f5aec2da6e95 42 57acd742 50 c3 00 00 55000000 0b // I changed it to ff; npthing to do; yet, sometimes is 44, sometimes is 45; what can it mean?
+00000100 48c094 44 66b167c35ca7ca 42 1763d940 50 c3 00 00 55000000 0b // I replaced the unknown mess with a sequence of 00 bytes; the unknown mess really doesn't mean anything at all?
