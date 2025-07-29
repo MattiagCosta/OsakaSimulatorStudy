@@ -201,3 +201,17 @@ function DownLoadTsu_han_datFile(){
 	link.click();
 	document.body.removeChild(link);
 }
+
+function DownloadTextareaAsTsu_han_datFile(){
+	const textarea_value = document.querySelector("textarea").value.trim();
+	const tsu_han_dat = new Uint8Array(hexStringToByteArray(textarea_value));
+
+	let blob = new Blob([tsu_han_dat], { type: "application/octet-stream" });
+	let link = document.createElement("a");
+	link.href = URL.createObjectURL(blob);
+	link.download = "tsu_han.dat";
+	link.style.display = "none"; // Hide the link
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);
+}

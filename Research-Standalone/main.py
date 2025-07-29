@@ -2,7 +2,7 @@ from tools import *
 
 parent_folder = "./tsu_han_dat/"
 
-folder = "tsu_han_dat-50000_yen-641/"
+folder = "tsu_han_dat-after-end/"
 
 converted_file = ConvertBinaryFileToHex("C:/Users/Matti/Osaka Simulator FINAL (standalone)/Osaka Simulator FINAL/tsu_han.dat")
 SaveToTextFile(converted_file, f"{parent_folder}{folder}tsu_han-hex.txt")
