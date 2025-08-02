@@ -44,49 +44,34 @@
 				this.value = 0;
 			}
 		});
-	</script>
 
-	<div id="checkbox-controls">
-		<input type="checkbox" id="invert-selection">
-		<label for="invert-selection">Invert selection</label>
-		<input type="checkbox" id="select-all">
-		<label for="select-all">Select all</label>
-		<input type="checkbox" id="deselect-all">
-		<label for="deselect-all">Deselect all</label>
-	</div>
-
-	<script>
-		function ResetCheckboxControls(this_checkbox){
-			checkboxes = document.querySelectorAll('#checkbox-controls input[type="checkbox"]');
-			for(let checkbox of checkboxes){
-				if(checkbox !== this_checkbox){
-					checkbox.checked = false;
-				}
-			}
-		}
-
-		document.getElementById('invert-selection').addEventListener('change', function(e){
+		function InvertSelection(){
 			let checkboxes = document.querySelectorAll('#items-list input[type="checkbox"]');
 			for(let checkbox of checkboxes){
 				checkbox.checked = !checkbox.checked;
 			}
-			ResetCheckboxControls(this);
-		});
-		document.getElementById('select-all').addEventListener('change', function(e){
+		}
+
+		function SelectAll(){
 			let checkboxes = document.querySelectorAll('#items-list input[type="checkbox"]');
 			for(let checkbox of checkboxes){
 				checkbox.checked = true;
 			}
-			ResetCheckboxControls(this);
-		});
-		document.getElementById('deselect-all').addEventListener('change', function(e){
+		}
+
+		function DeselectAll(){
 			let checkboxes = document.querySelectorAll('#items-list input[type="checkbox"]');
 			for(let checkbox of checkboxes){
 				checkbox.checked = false;
 			}
-			ResetCheckboxControls(this);
-		});
+		}
 	</script>
+
+	<div>
+		<button onclick="InvertSelection()">Invert selection</button>
+		<button onclick="SelectAll()">Select all</button>
+		<button onclick="DeselectAll()">Deselect all</button>
+	</div>
 
 	<ul id="items-list"></ul>
 

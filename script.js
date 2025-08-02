@@ -187,9 +187,9 @@ function DownLoadTsu_han_datFile(){
 		sample[YEN_POSITION + i] = (yenValue >> (8 * i)) & 0xFF;
 	}
 
-	for(let item of items){
+	for(let item of ITEMS_LIST){
 		let position = GetItemFlagPosition(item);
-		sample[position] = 1; // Set the item flag to 1
+		sample[position] = items.includes(item) ? 1 : 0; // Set the item flag to 1
 	}
 
 	let blob = new Blob([sample], { type: "application/octet-stream" });
