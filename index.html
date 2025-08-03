@@ -36,12 +36,22 @@
 	<h3>Customize your file</h3>
 
 	<label for="yen">Number of yen</label>
+
+	<div>
+		<input type="checkbox" id="limits" checked="true">
+		<label for="limits">Activate / deactivate limits for the number of yen</label>
+	</div>
+
 	<input type="number" id="yen" min="0">
 
 	<script>
 		document.getElementById('yen').addEventListener('input', function(e){
+			if(!document.getElementById('limits').checked){ return; }
 			if(isNaN(this.value) || this.value<0){
 				this.value = 0;
+			}
+			if(this.value>YEN_LIMIT){
+				this.value = YEN_LIMIT;
 			}
 		});
 
@@ -67,6 +77,8 @@
 		}
 	</script>
 
+	<h4>List of items</h4>
+
 	<div>
 		<button onclick="InvertSelection()">Invert selection</button>
 		<button onclick="SelectAll()">Select all</button>
@@ -84,6 +96,17 @@
 			let label = document.createElement('label');
 			label.htmlFor = item;
 			label.textContent = item;
+
+			for(let tag in TAGS){
+				if(TAGS[tag].includes(item)){
+					label.textContent += " *" + tag;
+				}
+			}
+
+			if(TRANSLATIONS[item]){
+				label.textContent += " [-" + TRANSLATIONS[item] + "-]";
+			}
+
 			li.appendChild(checkbox);
 			li.appendChild(label);
 			document.getElementById('items-list').appendChild(li);
@@ -92,6 +115,11 @@
 
 	<p>Click the button to download a new save file based on the options you have chosen. The file will be named "tsu_han.dat". Remember that Osaka Simulator can't leave files named other than that, so if you download "tsu_han (1).dat" or something similar, rename it.</p>
 	<button onclick="DownLoadTsu_han_datFile()">Download file (yay!)</button>
+
+	<hr>
+
+	<button onclick="CreateItemsListSubset()">Create subset</button>
+	<p id="subset-output">Subset output (probably not very useful for you)</p>
 
 	<hr>
 
